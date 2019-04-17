@@ -1,0 +1,27 @@
+{% extends 'customuser/base.html' %}
+{% load static %}
+{% block content %}
+<table class="table mt-5">
+  <form method="POST" action="{% url 'share:delete_url' %}">
+  <thead class="thead-light">
+    <tr>
+      <th><a href="{% url 'share:index' %}"><img src="{% static "share/folder.png" %}"></a></th>
+      <th>{{ title_name }}</th>
+      <th></th>
+      <th><div class="text-right"><a href="{% url 'share:create_url' %}"><img src="{% static "share/plus.png" %}"></a></div></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for url in url_list %}
+    <tr>
+      <td scope="row"><img src="{% static "share/link.png" %}" ></td>
+      <td><a href="{{ url.site }}" target="_blank">{{ url.site_name }}</a></td>
+      <td> </td>
+      <td><div class="text-right"><button type="submit" name="delete_id" class="aiueo" value="{{ url.id }}"><img src="{% static "share/delete.png" %}"></div></td>
+    </tr>
+  </tbody>
+  {% endfor %}
+  {% csrf_token %}
+</form>
+</table>
+{% endblock %}

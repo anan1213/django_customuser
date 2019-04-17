@@ -1,0 +1,35 @@
+{% extends 'customuser/base.html' %}
+{% load static %}
+{% block content %}
+<!--
+<table class="table mt-5">
+  <thead class="thead-light">
+    <tr>
+      <th>username</th>
+      <th>follower</th>
+      <th>following</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ user.username }}</td>
+      <td>{{ followers }}</td>
+      <td>{{ following }}</td>
+  </tbody>
+
+</table>
+-->
+<div class="mt-auto">
+<div class="mx-auto" style="width: 50%;">
+<div class="card">
+  <img class="card-img-top" src="{% static "customuser/human.png" %}" alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">PROFILE</h4>
+    <p class="card-text">username: {{ user.username}}</p>
+    <p class="card-text">follower: {{ followers }}</p>
+    <p class="card-text">following: {{ following }}</p>
+    <a href="#!" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

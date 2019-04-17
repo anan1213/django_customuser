@@ -1,0 +1,30 @@
+{% extends 'customuser/base.html' %}
+{% load static %}
+{% block content %}
+<table class="table mt-5">
+  <form method="POST" action="{% url 'share:delete_category' %}">
+  <thead class="thead-light">
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th><div class="text-right"><a href="{% url 'share:create_category' %}"><img src="{% static "share/plus.png" %}"></a></div></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for category in categories %}
+    <tr>
+      <td scope="row"><img src="{% static "share/folder.png" %}" ><a href="{% url 'share:index_url' category.category %}" style="text-decoration:none;" >　　　<strong>{{ category }}</strong></a></td>
+      <td></td>
+      <td></td>
+      <!--<td><div class="text-right"><a href=#><img src="{% static "url/delete.png" %}"></a></div></td> -->
+      <!-- <td><button type="submit" name="delete_ids" class="flatbutton"><img src="{% static "url/delete.png" %}"></td> -->
+      <td><div class="text-right"><button type="submit" name="delete_id" class="aiueo" value={{ category.id }}><img src="{% static "share/delete.png" %}"></div></td>
+    </tr>
+  </tbody>
+  {% endfor %}
+  {% csrf_token %}
+</form>
+
+</table>
+{% endblock %}

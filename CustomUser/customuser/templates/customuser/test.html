@@ -1,0 +1,8 @@
+{% extends "customuser/base.html" %}
+{% block content %}
+
+{% for user in user_list %}
+<h1>{{ user.username }}</h1>
+{% endfor %}
+
+{% endblock %}
